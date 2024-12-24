@@ -182,7 +182,7 @@ const WeatherTable = ({ startDate, endDate, location }) => {
         tooltipContent: "Apparent Mean Temperature (°C)",
       },
     ],
-    []
+    [screenWidth]
   );
 
   const {
@@ -242,7 +242,7 @@ const WeatherTable = ({ startDate, endDate, location }) => {
                     <div className="flex items-center relative flex-wrap text-teal-800">
                       {column.render("Header")}
                       {column.tooltipContent && (
-                        <a
+                        <div
                           className="my-anchor-element ml-1 relative text-wrap  text-teal-500 "
                           onMouseEnter={() => setHoveredColumn(index)}
                           onMouseLeave={() => setHoveredColumn(null)}
@@ -257,7 +257,7 @@ const WeatherTable = ({ startDate, endDate, location }) => {
                               {column.tooltipContent}
                             </div>
                           )}
-                        </a>
+                        </div>
                       )}
                     </div>
                   </th>
