@@ -14,8 +14,6 @@ import {
 } from "chart.js";
 import { BsInfoCircleFill } from "react-icons/bs";
 import { FaCircle } from "react-icons/fa";
-import { useDebounce } from 'use-debounce';
-
 
 ChartJS.register(
   CategoryScale,
@@ -38,7 +36,6 @@ const WeatherTable = ({ startDate, endDate, location }) => {
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup listener on unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -197,7 +194,6 @@ const WeatherTable = ({ startDate, endDate, location }) => {
     canPreviousPage,
     canNextPage,
     pageOptions,
-    gotoPage,
     nextPage,
     previousPage,
     setPageSize,
