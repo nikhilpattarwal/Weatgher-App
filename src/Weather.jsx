@@ -239,7 +239,7 @@ const WeatherTable = ({ startDate, endDate, location }) => {
                         : ""
                     }`}
                   >
-                    <div className="flex items-center relative flex-wrap text-teal-800">
+                    <div className={`flex items-center relative  text-teal-800 ${screenWidth < 580 ? "flex-col"  :"flex"}`}>
                       {column.render("Header")}
                       {column.tooltipContent && (
                         <div
@@ -310,21 +310,59 @@ const WeatherTable = ({ startDate, endDate, location }) => {
           </select>
         </div>
 
-        <div className="mb-8">
-          <Line
-            data={chartData}
-            options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                title: { display: true },
-              },
-              aspectRatio: 5,
-            }}
-            width={500}
-            height={500}
-          />
-        </div>
+          <div className="mb-8 mt-4">
+          {screenWidth > 600 ? (
+              <Line
+                data={chartData}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    title: { 
+                      display: true,
+                      text: "Temperature Trends Analysis", 
+                    },
+                  },
+                  aspectRatio: 5,
+                }}
+                width={500}
+                height={500}
+              />
+            ) : (
+              <Line
+                data={chartData}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: true,
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: "Temperature Trends Analysis",
+                      font: { size: 16 },
+                    },
+                    legend: {
+                      display: true,
+                      position: "bottom",
+                      labels: {
+                        font: { size: 10 },
+                        boxWidth: 10,
+                      },
+                    },
+                  },
+                  scales: {
+                    x: {
+                      ticks: {
+                        autoSkip: true,
+                        maxTicksLimit: 4,
+                      },
+                    },
+                  },
+                  aspectRatio: 1,
+                }}
+                style={{ width: "100%", margin: "auto" }}
+              />
+            )}
+          </div>
       </div>
     </div>
     }
