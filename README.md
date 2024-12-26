@@ -2,6 +2,8 @@
 
 A weather tracking app built using React, allowing users to view weather data for specific locations and date ranges. The app utilizes geolocation to fetch the user's current location, displays weather data, and provides a flexible date range selection.
 
+HOSTED LINK - https://nikhilpattarwal-weather-app.netlify.app/
+
 ## Libraries Used
 
 ### 1. **React**
