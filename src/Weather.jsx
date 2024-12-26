@@ -40,6 +40,8 @@ const WeatherTable = ({ startDate, endDate, location }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  //getting data conditionally using api
   useEffect(() => {
     if (location.lat && location.lon) {
       const apiUrl =
@@ -95,6 +97,7 @@ const WeatherTable = ({ startDate, endDate, location }) => {
     }
   }, [location, startDate, endDate]);
 
+  // cahrt data arranged to be displayed
   const chartData = {
     labels: weatherData.map((entry) => {
       return screenWidth < 510 ? entry.date : entry.date2;
@@ -145,6 +148,7 @@ const WeatherTable = ({ startDate, endDate, location }) => {
     ],
   };
 
+  // table data
   const columns = React.useMemo(
     () => [
       {

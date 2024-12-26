@@ -30,7 +30,6 @@ function App() {
     );
   }, []);
 
-  console.log(selectedDates);
 
   return (
     <div className='container mx-auto p-3'>
